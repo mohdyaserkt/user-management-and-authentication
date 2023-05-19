@@ -1,0 +1,40 @@
+<style>
+    body{
+        padding: 3rem;
+    }
+</style>
+
+            <button type="button" class="btn btn-primary"><i class="fa-regular fa-user">  {{message}} <i class="bi bi-chevron-down"></i></i></button>
+              <a href="/admin/logout"><button type="button" class="btn btn-danger">Log Out Admin</button></a>
+
+            
+          
+<h1>{{message}}</h1>
+<table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Phone</th>
+            <th>Modify</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each imp}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{username}}</td>
+            <td>{{phone}}</td>
+            <td><a href="admin/edituser/{{_id}}"><button type="button" class="btn btn-success">Edit</button></a>     <a href="admin/deleteuser/{{_id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+        </tr>
+     {{/each}}
+    </tbody>
+</table>
+
+<a href="/admin/createuser"><button type="button" class="btn btn-primary btn-lg btn-block">Create User</button></a>
+<script>
+$(document).ready( function () {
+    $('#table_id').dataTable();
+} );
+  
+</script>
